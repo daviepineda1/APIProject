@@ -1,9 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family-Open+Sans&display=swap');
 
 body{
-    background-color:#f1e7b6;
-    display:flex;
-    justify-content:center;
+    background-image:linear-gradient(180deg,
+    rgba(233, 247, 247, 1) 23.8%, rgba(252, 221, 221, 1)91%);
+
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 1;
   }
 
   #container{
