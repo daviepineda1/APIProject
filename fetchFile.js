@@ -1,25 +1,28 @@
-const first_result = document.getElementById('first_result');
-const second_result = document.getElementById('second_result');
-const first_btn = document.getElementById('first_btn');
-const second_btn = document.getElementById('second_btn');
+const cat_btn = document.getElementById('cat_btn');
+const dog_btn = document.getElementById('dog_btn');
+const cat_result = document.getElementById('cat_result');
+const dog_result = document.getElementById('dog_result');
 
+cat_btn.addEventListener('click', getRandomImg);
+dog_btn.addEventListener('click', getRandomImg2);
 
-
-first_btn.addEventListener('click',  getRandomPicture)
-second_btn.addEventListener('click', getRandomPicture2)
-
-function getRandomPicture(){
-    fetch('https://aws.random.cat/meow')
-        .then(res => res.json())
-        .then(data => {
-            first_result.innerHTML = <img src= {data.file} />
-    })
+function getRandomImg() {
+	fetch('https://aws.random.cat/meow')
+		.then(res => res.json())
+		.then(data => {
+			cat_result.innerHTML = `<img src=${data.file} alt="cat" />`
+		});
 }
 
-function getRandomPicture2(){
-fetch('https://random.dog/woof.json')
-    .then(res => res.json())
-    .then(data => {
-        second_result.innerHTML = <img src= {data.url}/>
-        })
+function getRandomImg2() {
+	fetch('https://random.dog/woof.json')
+		.then(res => res.json())
+		.then(data => {
+			if(data.url.includes('.mp4')) {
+				getRandomImg2();
+			}
+			else {
+				dog_result.innerHTML = `<img src=${data.url} alt="dog" />`;
+			}
+		});
 }
