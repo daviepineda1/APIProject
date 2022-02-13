@@ -9,17 +9,17 @@ first_btn.addEventListener('click', getRandomPicture)
 second_btn.addEventListener('click', getRandomPicture2)
 
 function getRandomPicture(){
-    fetch('https://aws.random.cat/meow')
-        .then(res => res.json())
-        .data(data => {
-            first_result.innerHTML = '<img src="${data.file}"/>'
-        })
+fetch('https://aws.random.cat/meow')
+    .then(res => res.json())
+    .data(data => {
+    first_result.innerHTML = '<img src="${data.file}"/>'
+    })
 }
 
 function getRandomPicture2(){
-    fetch('https://placebear.com/200/300')
-        .then(res => res.json())
-        .data(data => {
-            second_result.innerHTML = '<img src="${data.file}"/>'
+fetch('https://random.dog/woof.json')
+    .then(res => res.json())
+    .data(data => {
+    second_result.innerHTML = '<img src="${data.url}"/>'
         })
 }
