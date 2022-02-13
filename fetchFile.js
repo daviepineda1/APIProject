@@ -5,21 +5,21 @@ const second_btn = document.getElementById('second_btn');
 
 
 
-first_btn.addEventListener('click', getRandomPicture)
+first_btn.addEventListener('click',  getRandomPicture)
 second_btn.addEventListener('click', getRandomPicture2)
 
 function getRandomPicture(){
-fetch('https://aws.random.cat/meow')
-    .then(res => res.json())
-    .data(data => {
-    first_result.innerHTML = '<img src="${data.file}"/>'
+    fetch('https://aws.random.cat/meow')
+        .then(res => res.json())
+        .then(data => {
+            first_result.innerHTML = <img src= {data.file} />
     })
 }
 
 function getRandomPicture2(){
 fetch('https://random.dog/woof.json')
     .then(res => res.json())
-    .data(data => {
-    second_result.innerHTML = '<img src="${data.url}"/>'
+    .then(data => {
+        second_result.innerHTML = <img src= {data.url}/>
         })
 }
